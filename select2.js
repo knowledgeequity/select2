@@ -2570,6 +2570,7 @@ the specific language governing permissions and limitations under the Apache Lic
             var container = $(document.createElement("div")).attr({
                 "class": "select2-container select2-container-multi"
             }).html([
+                "<div class='selected_holder clearfix'></div>",
                 "<ul class='select2-choices'>",
                 "  <li class='select2-search-field'>",
                 "    <label for='' class='select2-offscreen'></label>",
@@ -3078,7 +3079,7 @@ the specific language governing permissions and limitations under the Apache Lic
             }
 
             choice.data("select2-data", data);
-            choice.insertBefore(this.searchContainer);
+            choice.appendTo(this.searchContainer.parent().parent().children('.selected_holder'));
 
             val.push(id);
             this.setVal(val);
